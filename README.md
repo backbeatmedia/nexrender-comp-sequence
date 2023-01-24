@@ -1,10 +1,10 @@
 # nexrender-action-sequence-comps
 
-This plugin causes comps in the target projkect to be combined into one comp before rendering
+This plugin causes comps in the target project to be combined into one comp before rendering
 
 ## Install
 
-`npm install nexrender-action-sequence-comps`
+`npm install nexrender-comp-sequence`
 
 ## How to use
 
@@ -24,7 +24,7 @@ This plugin causes comps in the target projkect to be combined into one comp bef
     "actions": {
         "prerender": [
             {
-                "module": "nexrender-action-sequence-comps",
+                "module": "nexrender-comp-sequence",
                 "sequence": [
                     "first-comp-to-be-added",
                     "second-comp",
@@ -37,4 +37,5 @@ This plugin causes comps in the target projkect to be combined into one comp bef
 
 ## Notes
 
+The new comp will only contain the work areas - other parts will be trimmed off
 
