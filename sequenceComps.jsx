@@ -13,7 +13,7 @@
     }
 
     // get the name of the original comp supplied to nexrender
-    const templateCompName = typeof _sequence!== 'undefined' && _sequence.get('template') || 'demo-template';
+    const templateCompName = typeof _sequence!== 'undefined' && _sequence.get('template') || 'Comp 1';
 
     // get the template comp itself
     const templateComp = compByName(templateCompName);
@@ -22,7 +22,7 @@
     const comp = emptyDuplicate(templateComp, "__sequence__");
     
     // get the sequence of comps to create
-    const sequenceParameters = typeof _sequence!== 'undefined' && _sequence.get('sequence') || ['COMP1','COMP3','COMP2'];
+    const sequenceParameters = typeof _sequence!== 'undefined' && _sequence.get('sequence') || [];
 
     // beginning at the top of the new empty comp
     var insertTime = 0;
@@ -39,11 +39,11 @@
         // and to the bottom of the stack
         newLayer.moveToEnd();
 
-        // trim the layer in point to the edit point
-        newLayer.inPoint = insertTime;
-
         //move it back if required to the current start point, accounting for the working area of the new comp
         newLayer.startTime = insertTime - addComp.workAreaStart;
+
+        // trim the layer in point to the edit point
+        newLayer.inPoint = insertTime;
 
         // trim the layer outpoint to the end of the new added comp work area
         newLayer.outPoint = insertTime + addComp.workAreaDuration;
