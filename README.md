@@ -39,3 +39,6 @@ This plugin causes comps in the target project to be combined into one comp befo
 
 The new comp will only contain the work areas - other parts will be trimmed off
 
+This plugin is based on the excellent MOGRT action which you can find here
+https://github.com/vonstring/nexrender-action-mogrt-template
+
