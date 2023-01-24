@@ -1,6 +1,6 @@
 {
   "name": "nexrender-comp-sequence",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Nexrender action plugin to combine comps",
   "main": "index.js",
   "scripts": {
