@@ -8,7 +8,7 @@ module.exports = async (job, settings, options, type) => {
     settings.logger.log(`path to script = ${jsxUrl}`)
     
     // module runs in predownload mode only
-    if (type === 'predownload') {
+    if (type == 'predownload') {
 
         // if a sequence of comps has been defined ...
         if (typeof options.sequence !== 'undefined') {
@@ -41,6 +41,6 @@ module.exports = async (job, settings, options, type) => {
 
     } else {
 
-        throw Error("'action-sequence-comps' module should be used only in 'predownload' section");
+        throw Error("'nexrender-comp-sequence' module should be used only in 'predownload' section");
     }
 }
