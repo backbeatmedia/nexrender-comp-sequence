@@ -30,32 +30,46 @@
     // for each comp referenced in the list
     for (var i = 0; i < sequenceParameters.length; i++) {
 
+        console.log(`i = ${i}`);
+
         // get it from the app
         var addComp = compByName(sequenceParameters[i]);
+        console.log(`addComp.name = ${addComp.name}`);
 
         // add it 
         var newLayer = comp.layers.add(addComp);
+        console.log(`newLayer.name = ${newLayer.name}`);
 
         // and to the bottom of the stack
         newLayer.moveToEnd();
+        console.log(`moveToEnd() done`);
 
         //move it back if required to the current start point, accounting for the working area of the new comp
         newLayer.startTime = insertTime - addComp.workAreaStart;
+        console.log(`move back done`);
 
         // trim the layer in point to the edit point
         newLayer.inPoint = insertTime;
+        console.log(`trim in done`);
 
         // trim the layer outpoint to the end of the new added comp work area
         newLayer.outPoint = insertTime + addComp.workAreaDuration;
+        console.log(`trim out done`);
 
         // remember where we ended
         insertTime = insertTime + addComp.workAreaDuration;
+        console.log(`store done`);
 
     }
 
     // extend the new comp to fit in all the added layers
     comp.displayStartTime = 0;
+    console.log(`displayStartTime done`);
+
     comp.duration = insertTime;
+    console.log(`duration done`);
+
     comp.workAreaDuration = insertTime;
+    console.log(`workAreaDuration done`);
 
 })();
