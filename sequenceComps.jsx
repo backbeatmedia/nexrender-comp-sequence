@@ -13,7 +13,7 @@
     }
 
     // get the name of the original comp supplied to nexrender
-    const templateCompName = typeof _sequence!== 'undefined' && _sequence.get('template') || 'Comp 1';
+    const templateCompName = typeof _sequence !== 'undefined' && _sequence.get('template') || 'Comp 1';
 
     // get the template comp itself
     const templateComp = compByName(templateCompName);
@@ -56,12 +56,12 @@
 
     // extend the new comp to fit in all the added layers
     comp.displayStartTime = 0;
-    $.writeln(`displayStartTime done`);
+    $.writeln('displayStartTime done');
 
     comp.duration = insertTime;
-    $.writeln(`duration done`);
+    $.writeln('duration done');
 
     comp.workAreaDuration = insertTime;
-    $.writeln(`workAreaDuration done`);
+    $.writeln('workAreaDuration done');
 
 })();
