@@ -5,6 +5,8 @@ module.exports = async (job, settings, options, type) => {
     settings.logger = settings.logger ?? console;
     const jsxUrl = url.pathToFileURL(path.join(__dirname, 'sequenceComps.jsx')).toString();
     
+    settings.logger.log(`path to script = ${jsxUrl}`)
+    
     // module runs in predownload mode only
     if (type === 'predownload') {
 
