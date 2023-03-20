@@ -8,9 +8,9 @@ This plugin causes comps in the target project to be combined into one comp befo
 
 ## How to use
 
-1. Add this module as the last pre-render action
+1. Add this module as a pre-download action
 2. Add an array of comps to sequence as `sequence`. They will be sequenced in the order you list them
-3. The target comp you supply will be used as a template
+3. The target comp you name in the job definition will be used as a template, so it must exist in the AE project
 
 
 
@@ -22,7 +22,7 @@ This plugin causes comps in the target project to be combined into one comp befo
         "composition": "used-as-a-template"
     },
     "actions": {
-        "prerender": [
+        "predownload": [
             {
                 "module": "nexrender-comp-sequence",
                 "sequence": [
