@@ -30,8 +30,6 @@
     // for each comp referenced in the list
     for (var i = 0; i < sequenceParameters.length; i++) {
 
-        console.log(`i = ${i}`);
-
         // get it from the app
         var addComp = compByName(sequenceParameters[i]);
         $.writeln(addComp.name);
