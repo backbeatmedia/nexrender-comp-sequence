@@ -5,8 +5,8 @@ module.exports = async (job, settings, options, type) => {
     settings.logger = settings.logger ?? console;
     const jsxUrl = url.pathToFileURL(path.join(__dirname, 'sequenceComps.jsx')).toString();
     
-    // module runs in prerender mode only
-    if (type === 'prerender') {
+    // module runs in predownload mode only
+    if (type === 'predownload') {
 
         // if a sequence of comps has been defined ...
         if (typeof options.sequence !== 'undefined') {
@@ -39,6 +39,6 @@ module.exports = async (job, settings, options, type) => {
 
     } else {
 
-        throw Error("'action-sequence-comps' module should be used only in 'prerender' section");
+        throw Error("'action-sequence-comps' module should be used only in 'predownload' section");
     }
 }
