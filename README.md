@@ -26,9 +26,9 @@ This plugin causes comps in the target project to be combined into one comp befo
             {
                 "module": "nexrender-comp-sequence",
                 "sequence": [
-                    "first-comp-to-be-added",
-                    "second-comp",
-                    "third-comp" 
+                    { "comp": "OPENER" },
+                    { "comp": "uploaded-video-and-overlay" },
+                    { "comp": "CLOSER" }
                 ]
             }
         ],
