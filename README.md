@@ -26,9 +26,16 @@ This plugin causes comps in the target project to be combined into one comp befo
             {
                 "module": "nexrender-comp-sequence",
                 "sequence": [
-                    { "comp": "OPENER" },
-                    { "comp": "uploaded-video-and-overlay" },
-                    { "comp": "CLOSER" }
+                    {
+                        "comp": "first-comp"
+                    },
+                    {
+                        "comp": "second-comp",
+                        "extend": true // if true - all layers' out-points & comp work area duration will be extended so that the longest piece of footage is fully used
+                    },
+                    { 
+                        "comp": "third-comp"
+                    }
                 ]
             }
         ],

@@ -12,6 +12,14 @@
             }
         }
 
+        function extendComp(name) {
+
+            // find the longest layer (footage, not workarea)
+
+            // set the comp work area duration so that it lines up with the end of the longest footage
+
+        }
+
         // get the name of the original comp supplied to nexrender
         var templateCompName = typeof _sequence !== 'undefined' && _sequence.get('template') || 'Comp 1';
 
@@ -34,6 +42,9 @@
 
                 // get it from the app
                 var addComp = compByName(sequenceParameters[i]['comp']);
+
+                // extend if required
+                if (sequenceParameters[i]['extend']) extendComp(addComp)
 
                 // add it 
                 var newLayer = comp.layers.add(addComp);
