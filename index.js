@@ -24,7 +24,7 @@ module.exports = async (job, settings, options, type) => {
                 parameters: [
                     {
                         key: 'sequence',
-                        value: Object.assign({}, options.sequence)
+                        value: options.sequence
                     },
                     {
                         key: "template",
