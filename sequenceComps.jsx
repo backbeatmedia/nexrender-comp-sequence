@@ -1,4 +1,4 @@
-    (function() {
+(function() {
         function emptyDuplicate(comp, name) {
             return app.project.items.addComp(name, comp.width, comp.height, comp.pixelAspect, comp.duration, comp.frameRate);
         }
@@ -12,11 +12,25 @@
             }
         }
 
-        function extendComp(name) {
+        function extendComp(comp) {
 
-            // find the longest layer (footage, not workarea)
+            // find and measure the longest AVItem contained in a layer
+            var longestLayer = 0;
+            var longestLength = 0
+
+            for (var i = 1; i <= comp.layers.length; i++)
+                if (comp.layers[i] instanceof AVLayer)
+                        if (comp.layers[i].source.duration > longestLength)
+                            {
+                                longestLayer = i;
+                                longestLength = comp.layers[i].source.duration;
+                            }
+
+            // extend all layers to match the duration of the longest AVItem
+            for (var i = 1; i <= comp.layers.length; i++) comp.layers[i].outPoint = longestLength;
 
             // set the comp work area duration so that it lines up with the end of the longest footage
+            comp.workAreaDuration = longestLength;
 
         }
 
@@ -70,11 +84,7 @@
 
         // extend the new comp to fit in all the added layers
         comp.displayStartTime = 0;
-
-
         comp.duration = insertTime;
-
-
         comp.workAreaDuration = insertTime;
 
     })();
